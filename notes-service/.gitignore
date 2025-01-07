@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+notes-service/src/main/resources/keep-clone-d94be-firebase-adminsdk-3wwgc-2af620c1f8.json
+
 ### STS ###
 .apt_generated
 .classpath
@@ -28,6 +30,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
 
 ### VS Code ###
 .vscode/
