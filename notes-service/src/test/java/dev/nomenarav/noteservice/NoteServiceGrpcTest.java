@@ -2,6 +2,7 @@ package dev.nomenarav.noteservice;
 
 import dev.nomenarav.CreateNoteRequest;
 import dev.nomenarav.Note;
+import dev.nomenarav.NoteResponse;
 import dev.nomenarav.NoteServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -41,7 +42,7 @@ class NoteServiceGrpcTest {
                 .setTitle("Test")
                 .setContent("This is a test note")
                 .build();
-        Note note = noteServiceBlockingStub.createNote(request);
+        NoteResponse note = noteServiceBlockingStub.createNote(request);
         assertNotNull(note.getId());
 
         assertEquals("Test", note.getTitle());

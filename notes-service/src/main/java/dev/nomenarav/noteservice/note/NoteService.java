@@ -11,6 +11,6 @@ public class NoteService {
     }
 
     public Note createNote(String title, String content, Integer userId){
-        return noteRepository.save(new Note(null, title, content, null, null));
+        return noteRepository.save(new Note( title, content, userId));
     }
 }
