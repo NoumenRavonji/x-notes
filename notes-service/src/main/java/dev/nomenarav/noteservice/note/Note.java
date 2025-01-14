@@ -19,7 +19,7 @@ public class Note {
         @Column(columnDefinition = "TEXT")
         String content;
 
-        @Column(nullable = false)
+        @Column(nullable = true)
         private Integer userId;
 
         @CreatedDate

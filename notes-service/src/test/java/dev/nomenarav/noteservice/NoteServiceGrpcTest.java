@@ -43,6 +43,7 @@ class NoteServiceGrpcTest {
                 .setContent("This is a test note")
                 .build();
         NoteResponse note = noteServiceBlockingStub.createNote(request);
+        System.out.println(note.getContent());
         assertNotNull(note.getId());
 
         assertEquals("Test", note.getTitle());
