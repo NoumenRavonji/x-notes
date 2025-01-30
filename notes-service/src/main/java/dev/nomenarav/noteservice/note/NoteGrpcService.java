@@ -24,18 +24,26 @@ public class NoteGrpcService extends NoteServiceGrpc.NoteServiceImplBase {
 
         logger.info("got request title =" + request.getTitle());
         logger.info("got request content =" + request.getContent());
-        Note note = noteService.createNote(
-                request.getTitle(),
-                request.getContent(),
-                null
-        );
-//        NoteResponse noteResponse = NoteResponse.newBuilder()
-//                .setId(note.id())
-//                .setTitle(request.getTitle())
-//                .setContent(request.getContent())
-//                .build();
-//
-//        responseObserver.onNext(noteResponse);
-//        responseObserver.onCompleted();
+        try{
+            Note note = noteService.createNote(
+                    request.getTitle(),
+                    request.getContent(),
+                    null
+            );
+                    NoteResponse noteResponse = NoteResponse.newBuilder()
+                .setId(note.getId())
+                .setTitle(request.getTitle())
+                .setContent(request.getContent())
+                .build();
+
+        responseObserver.onNext(noteResponse);
+        responseObserver.onCompleted();
+
+
+        }catch (Exception e) {
+            logger.error("error creating note", e);
+        }
+
+
     }
 }
