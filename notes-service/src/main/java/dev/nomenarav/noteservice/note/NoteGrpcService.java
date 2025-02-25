@@ -30,14 +30,14 @@ public class NoteGrpcService extends NoteServiceGrpc.NoteServiceImplBase {
                     request.getContent(),
                     null
             );
-                    NoteResponse noteResponse = NoteResponse.newBuilder()
+            NoteResponse noteResponse = NoteResponse.newBuilder()
                 .setId(note.getId())
                 .setTitle(request.getTitle())
                 .setContent(request.getContent())
                 .build();
 
-        responseObserver.onNext(noteResponse);
-        responseObserver.onCompleted();
+            responseObserver.onNext(noteResponse);
+            responseObserver.onCompleted();
 
 
         }catch (Exception e) {
